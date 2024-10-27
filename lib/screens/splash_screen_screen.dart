@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kings_store/Components/splash_screen_data.dart';
-import 'package:kings_store/Components/colors.dart';
+import 'package:kings_store/utils/constants.dart';
 import 'package:kings_store/screens/intro_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -95,7 +95,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               width: 7,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: currentIndex == index ? primaryColor : Colors.grey,
+                color: currentIndex == index ? AppColors.primaryColor : Colors.grey,
               ),
               duration: const Duration(milliseconds: 700))),
     );
@@ -106,7 +106,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7), color: primaryColor),
+          borderRadius: BorderRadius.circular(7), color: AppColors.primaryColor),
       width: MediaQuery.of(context).size.width * .9,
       height: 50,
       child: TextButton(

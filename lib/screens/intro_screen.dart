@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kings_store/Components/colors.dart';
-import 'package:kings_store/screens/signin.dart';
-import 'package:kings_store/screens/signup.dart';
-import 'package:kings_store/utils/buttons.dart';
+import 'package:kings_store/utils/constants.dart';
+import 'package:kings_store/screens/signin_screen.dart';
+import 'package:kings_store/screens/signup_screen.dart';
+import 'package:kings_store/widgets/buttons.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -67,7 +67,7 @@ class _IntroPageState extends State<IntroPage> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(7),
         border: Border.all(
-          color: primaryColor,
+          color: AppColors.primaryColor,
           width: 2,
         ),
       ),
@@ -80,7 +80,7 @@ class _IntroPageState extends State<IntroPage> {
         },
         child: const Text(
           "Login",
-          style: TextStyle(color: primaryColor),
+          style: TextStyle(color: AppColors.primaryColor),
         ),
       ),
     );
