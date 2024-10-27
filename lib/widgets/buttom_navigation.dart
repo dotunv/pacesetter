@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kings_store/screens/home.dart';
+import 'package:kings_store/screens/profile_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
@@ -41,8 +42,6 @@ class NavigationController extends GetxController {
     Container(
       color: Colors.amber,
     ),
-    Container(
-      color: Colors.blue,
-    ),
+    const ProfileScreen(),
   ];
 }

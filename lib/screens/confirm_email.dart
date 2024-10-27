@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:kings_store/Components/colors.dart';
-import 'package:kings_store/screens/signin.dart';
-import 'package:kings_store/screens/signup.dart';
-import 'package:kings_store/utils/buttons.dart';
+import 'package:kings_store/utils/constants.dart';
+import 'package:kings_store/screens/signin_screen.dart';
+import 'package:kings_store/screens/signup_screen.dart';
+import 'package:kings_store/widgets/buttons.dart';
 
 class ConfirmEmailPage extends StatefulWidget {
   const ConfirmEmailPage({super.key});
@@ -118,7 +118,7 @@ class _ConfirmEmailPageState extends State<ConfirmEmailPage> {
                     child: const Text(
                       'Sign Up',
                       style: TextStyle(
-                          color: primaryColor, fontWeight: FontWeight.bold),
+                          color: AppColors.primaryColor, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
@@ -151,7 +151,7 @@ class _ConfirmEmailPageState extends State<ConfirmEmailPage> {
                         'Go back to Sign In',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: primaryColor,
+                            color: AppColors.primaryColor,
                             decoration: TextDecoration.underline,
                             decorationThickness: 1),
                       ),

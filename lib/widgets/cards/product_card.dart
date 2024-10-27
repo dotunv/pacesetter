@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:kings_store/Components/colors.dart';
-import 'package:kings_store/utils/box_shadow.dart';
+import 'package:kings_store/utils/constants.dart';
+import 'package:kings_store/widgets/box_shadow.dart';
 
 class ProductCards extends StatelessWidget {
   const ProductCards({super.key});
@@ -60,7 +60,7 @@ class ProductCards extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
             decoration: BoxDecoration(
-                color: primaryColor, borderRadius: BorderRadius.circular(6)),
+                color: AppColors.primaryColor, borderRadius: BorderRadius.circular(6)),
             child: const Center(
                 child: Text(
               "Add to Cart",

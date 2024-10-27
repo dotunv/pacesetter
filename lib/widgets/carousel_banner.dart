@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kings_store/Components/colors.dart';
+import 'package:kings_store/utils/constants.dart';
 import 'package:kings_store/controllers/home_controller.dart';
 
 class CarouselBanner extends StatelessWidget {
@@ -69,7 +69,7 @@ class CarouselBanner extends StatelessWidget {
                   width: 10,
                   decoration: BoxDecoration(
                       color: controller.carousalCurrentIndex.value == i
-                          ? primaryColor
+                          ? AppColors.primaryColor
                           : Colors.grey,
                       borderRadius: BorderRadius.circular(20)),
                 ),

@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kings_store/widgets/buttom_navigation.dart';
 import 'package:kings_store/screens/coming_soon_screen.dart';
-import 'package:kings_store/Components/colors.dart';
-import 'package:kings_store/screens/signin.dart';
+import 'package:kings_store/utils/constants.dart';
+import 'package:kings_store/screens/signin_screen.dart';
 import 'package:kings_store/services/database.dart';
 import 'package:kings_store/services/shared_pref.dart';
-import 'package:kings_store/utils/buttons.dart';
+import 'package:kings_store/widgets/buttons.dart';
 import 'package:random_string/random_string.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -216,7 +216,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                           child: const Text(
                             'Sign In',
-                            style: TextStyle(color: primaryColor),
+                            style: TextStyle(color: AppColors.primaryColor),
                           ),
                         ),
                       ],

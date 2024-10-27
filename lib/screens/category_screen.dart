@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:kings_store/Components/colors.dart';
+import 'package:kings_store/utils/constants.dart';
 import 'package:kings_store/screens/product_screen.dart';
 import 'package:kings_store/services/database.dart';
-import 'package:kings_store/utils/box_shadow.dart';
+import 'package:kings_store/widgets/box_shadow.dart';
 
 class CategoryScreen extends StatefulWidget {
   String category;
@@ -117,7 +117,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                               padding: const EdgeInsets.symmetric(
                                   vertical: 3, horizontal: 6),
                               decoration: BoxDecoration(
-                                  color: primaryColor,
+                                  color: AppColors.primaryColor,
                                   borderRadius: BorderRadius.circular(6)),
                               child: const Center(
                                   child: Text(
