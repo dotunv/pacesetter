@@ -1,57 +1,108 @@
-# pacesetter (kings_store)
+# Pacesetter (kings_store)
 
-An ecommerce project built with Flutter.
+Flutter e-commerce app for browsing products by category, authenticating with Firebase, and managing a basic shopper profile. Package name in code: `kings_store`.
 
-## Getting Started
+Built as a mobile frontend portfolio project — clean screens, Firebase Auth + Firestore, and Bloc/GetX for state.
 
-This project is a starting point for a Flutter application.
+## Features
+
+- **Onboarding** — splash + intro flow driven by a Bloc
+- **Auth** — email/password sign up and sign in via Firebase Auth; profile data written to Firestore; session helpers via SharedPreferences
+- **Home** — greeting, search/filter UI, carousel banners, category chips (Food, Fashion, Grocery, Electronics), trending product cards
+- **Catalog** — category and product detail screens backed by Firestore collections
+- **Profile** — view profile, edit profile, sign out; menu stubs for delivery address, orders, wishlist, and bank details
+- **Navigation** — bottom nav (Home, Cart, More, Profile). Cart and More are scaffolded placeholders today
+
+## Stack
+
+| Layer | Choice |
+| --- | --- |
+| Framework | Flutter / Dart (`sdk: >=3.4.1 <4.0.0`) |
+| Backend | Firebase Auth, Cloud Firestore |
+| State / DI | `flutter_bloc` (onboarding), GetX (`get`) for bottom nav |
+| Config | `flutter_dotenv` (`.env` + `.env.example`) |
+| UI extras | Material 3, Iconsax, carousel slider, native splash, image picker |
+
+## Architecture
+
+```text
+lib/
+├─ main.dart                 # dotenv + Firebase init, MaterialApp
+├─ firebase_options.dart     # platform Firebase options (from .env)
+├─ screens/                  # splash, intro, auth, home, category, product, profile
+├─ Blocs/bloc_onboarding/    # onboarding Bloc
+├─ controllers/              # home controller
+├─ services/                 # Firestore + SharedPreferences helpers
+├─ models/                   # onboarding model
+├─ widgets/                  # bottom nav, cards, carousel, buttons
+├─ Components/               # splash data
+└─ utils/                    # constants, shared helpers
+```
+
+```mermaid
+flowchart LR
+  UI[Screens / Widgets] --> State[Bloc / GetX]
+  State --> Services[Auth / Firestore / Prefs]
+  Services --> Firebase[(Firebase Auth + Firestore)]
+```
+
+## Setup
 
 ### Prerequisites
 
-- Flutter SDK: Ensure you have Flutter installed on your machine. You can download it from [flutter.dev](https://flutter.dev).
-- Dart SDK: Included with Flutter.
-- Firebase: This project uses Firebase for authentication and Firestore for database management.
+- [Flutter SDK](https://flutter.dev) (Dart 3.4+)
+- A Firebase project with Authentication (Email/Password) and Firestore enabled
+- Platform config files when you build natively:
+  - Android: `google-services.json`
+  - iOS: `GoogleService-Info.plist`
 
-### Installation
+### Install
 
-1. **Clone the repository:**
+```bash
+git clone https://github.com/dotunv/pacesetter.git
+cd pacesetter
+cp .env.example .env
+flutter pub get
+```
 
-   ```bash
-   git clone https://github.com/dotunv/pacesetter.git
-   cd pacesetter
-   ```
+### Environment
 
-2. **Install dependencies:**
+Fill `.env` from `.env.example`. Keys are **names only** — never commit real values:
 
-   ```bash
-   flutter pub get
-   ```
+- `FIREBASE_API_KEY_WEB`, `FIREBASE_APP_ID_WEB`, `FIREBASE_MESSAGING_SENDER_ID`
+- `FIREBASE_PROJECT_ID`, `FIREBASE_STORAGE_BUCKET`, `FIREBASE_AUTH_DOMAIN`, `FIREBASE_MEASUREMENT_ID`
+- Platform variants: `FIREBASE_*_ANDROID`, `FIREBASE_*_IOS`, `FIREBASE_*_MACOS`, `FIREBASE_*_WINDOWS`
 
-3. **Set up Firebase:**
+`lib/firebase_options.dart` reads these via `flutter_dotenv`. Keep `.env` out of git (already in `.gitignore`).
 
-   - Follow the [instructions](https://firebase.google.com/docs/flutter/setup) to set up Firebase for your Flutter app.
-   - Ensure you have the `google-services.json` for Android and `GoogleService-Info.plist` for iOS in the respective directories.
+### Run
 
-4. **Run the app:**
+```bash
+flutter run
+# or target a device
+flutter devices
+flutter run -d <device_id>
+```
 
-   ```bash
-   flutter run
-   ```
+Useful checks:
 
-### Features
+```bash
+flutter analyze
+flutter test
+```
 
-- Firebase Authentication
-- Firestore Database Integration
-- Basic E-commerce Functionalities
+## Screenshots
 
-### Contributing
+<!-- Drop real captures under docs/screenshots/ and link them here -->
 
-Contributions are welcome! Please fork the repository and submit a pull request for any improvements.
+| Home | Product | Auth |
+| --- | --- | --- |
+| ![Home placeholder](https://via.placeholder.com/240x480?text=Home) | ![Product placeholder](https://via.placeholder.com/240x480?text=Product) | ![Auth placeholder](https://via.placeholder.com/240x480?text=Auth) |
 
-### License
+## Project status
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Actively useful as a Flutter + Firebase UI showcase. Cart / More tabs and several profile menu rows are intentional stubs for follow-up work.
 
-### Contact
+## License
 
-For any inquiries, please contact [victor](mailto:victoroluwasomidotun@gmail.com).
+See [LICENSE](LICENSE) if present in the repo.
